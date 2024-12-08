@@ -9,9 +9,17 @@ import matplotlib.pyplot as plt
 from neuralforecast import NeuralForecast
 from neuralforecast.models import NBEATS
 
+st.balloons()
 st.header("Ticker Forecaster is :blue[Born] :sunglasses:")
 
-st.header("This is not an app providing investing advise 🏴")
+st.subheader("This is not an app providing investing advise 🏴")
+st.divider()
+st.write("""
+The Bull Run App is a dynamic financial application designed to help \n
+investors and traders navigate and capitalize on bullish market trends. 
+Whether you're a seasoned investor or new to trading, the app provides tools, insights,\n
+and analytics to support profitable decision-making \nduring market upswings.
+""")
 
 def fetch_historical_data(product_id, days, granularity):
     base_url = "https://api.exchange.coinbase.com"
