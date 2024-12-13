@@ -65,14 +65,14 @@ days = 1000
 granularity = 86400  # 1-day candles
 
 
-product_id = st.text_input("Movie title", "ETH-USD")
+# st.text("Choose Your Ticker.")
+product_id = st.text_input("Choose Your Ticker", "ETH-USD")
 # Fetch data
 data = fetch_historical_data(product_id, days, granularity)
 
 # Display and save data
 # print(data)
 # data.to_csv("btc_usd_300days.csv", index=False)
-st.text("Choose Your Ticker.")
 st.dataframe(data.style.highlight_max(axis=0))
 
 st.write("Preprocessing the Timeseries")
@@ -91,14 +91,14 @@ horizon = 150  # Forecast 30 steps ahead
 
 nf = NeuralForecast(
     models=[
-        NBEATS(input_size=input_size, h=horizon, max_steps=200),  # Specify input_size and forecast horizon
+        NBEATS(input_size=input_size, h=horizon, max_steps=300),  # Specify input_size and forecast horizon
     ],
     freq='D'  # Specify the frequency of your data
 )
 
 # Fit the model
 nf.fit(fcst_data)
-st.write("endpoint2")
+# st.write("endpoint2")
 st.write("Fitting the Model...")
 # Forecast
 forecast = nf.predict()
