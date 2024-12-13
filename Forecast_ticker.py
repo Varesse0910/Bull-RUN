@@ -91,7 +91,7 @@ horizon = 150  # Forecast 30 steps ahead
 
 nf = NeuralForecast(
     models=[
-        NBEATS(input_size=input_size, h=horizon),  # Specify input_size and forecast horizon
+        NBEATS(input_size=input_size, h=horizon, max_steps=200),  # Specify input_size and forecast horizon
     ],
     freq='D'  # Specify the frequency of your data
 )
